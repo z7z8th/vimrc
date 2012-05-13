@@ -18,21 +18,21 @@ like it.  To do so, please do the following:
 
    	wget -qO - http://github.com/nvie/vimrc/tarball/master | tar -xzvf -
 
-2. In your ~/.vimrc, add the following line::
-
-   	source ~/path/to/vimrc/vimrc
-
-3. Fetch submodules::
+2. Fetch submodules::
 
    	git submodule init
    	git submodule update
 
-4. Recompile Command-T Ruby C extension for your platform (if other than
-   Mac OS X)::
+3. Recompile Command-T Ruby C extension for your platform::
 
    	cd vim/ruby/command-t
    	ruby extconf.rb
    	make clean; make
+
+4. Create Symlinks::
+
+   	ln -s path/to/vimrc/vimrc ~/.vimrc
+   	ln -s path/to/vimrc/vim ~/.vim
 
 5. Touch::
 

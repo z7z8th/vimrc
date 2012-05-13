@@ -346,7 +346,9 @@ let Tlist_Inc_Winwidth=1            " increase window by 1 when growing
 
 " the default ctags in /usr/bin on the Mac is GNU ctags, so change it to the
 " exuberant ctags version in /usr/local/bin
-let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+"let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+" but debian install exuberant ctags in /usr/bin
+let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 
 " show function/method prototypes in the list
 let Tlist_Display_Prototype=1
@@ -566,11 +568,12 @@ iab lllorem Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Etiam lacu
 if has("gui_running")
     "set guifont=Droid\ Sans\ Mono:h12
     "set guifont=saxMono:h12
-    set guifont=Anonymous\ for\ Powerline:h11
+    "set guifont=Anonymous\ for\ Powerline:h11
+    "set guifont=Courier\ New
     set linespace=2
     "colorscheme mustang
     "colorscheme molokai
-    colorscheme railscat
+    colorscheme torte
 
     " Remove toolbar, left scrollbar and right scrollbar
     set guioptions-=T
@@ -580,7 +583,7 @@ if has("gui_running")
     set guioptions-=R
 else
     set bg=dark
-    colorscheme molokai
+    colorscheme default
 endif
 
 " Pulse ------------------------------------------------------------------- {{{
@@ -629,3 +632,7 @@ endfunction
 let g:Powerline_symbols = 'fancy'
 
 " }}}
+
+
+highlight WhitespaceEOL ctermbg=red guibg=red
+match WhitespaceEOL /\s\+$/
