@@ -1,39 +1,39 @@
 [submodule "vim/bundles/snipmate_for_django"]
 	path = vim/bundles/snipmate_for_django
-	url = git://github.com/robhudson/snipmate_for_django.git
+	url = https://github.com/robhudson/snipmate_for_django.git
 [submodule "vim/bundle/snipmate_for_django"]
 	path = vim/bundle/snipmate_for_django
-	url = git://github.com/robhudson/snipmate_for_django.git
+	url = https://github.com/robhudson/snipmate_for_django.git
 [submodule "vim/bundle/fugitive"]
 	path = vim/bundle/fugitive
-	url = git://github.com/tpope/vim-fugitive.git
+	url = https://github.com/tpope/vim-fugitive.git
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
+	url = https://github.com/scrooloose/nerdtree.git
 [submodule "vim/bundle/ack"]
 	path = vim/bundle/ack
-	url = git://github.com/mileszs/ack.vim.git
+	url = https://github.com/mileszs/ack.vim.git
 [submodule "vim/bundle/abolish"]
 	path = vim/bundle/abolish
-	url = git://github.com/nvie/vim-abolish.git
+	url = https://github.com/nvie/vim-abolish.git
 [submodule "vim/bundle/toggle_mouse"]
 	path = vim/bundle/toggle_mouse
-	url = git://github.com/nvie/vim-togglemouse.git
+	url = https://github.com/nvie/vim-togglemouse.git
 [submodule "vim/bundle/pyunit"]
 	path = vim/bundle/pyunit
-	url = git://github.com/nvie/vim-pyunit.git
+	url = https://github.com/nvie/vim-pyunit.git
 [submodule "vim/bundle/rst_tables"]
 	path = vim/bundle/rst_tables
-	url = git://github.com/nvie/vim-rst-tables.git
-[submodule "vim/bundle/nerdcommenter"]
-	path = vim/bundle/nerdcommenter
-	url = http://github.com/scrooloose/nerdcommenter.git
+	url = https://github.com/nvie/vim-rst-tables.git
 [submodule "vim/bundle/gundo"]
 	path = vim/bundle/gundo
-	url = http://github.com/sjl/gundo.vim.git
+	url = https://github.com/sjl/gundo.vim.git
 [submodule "vim/bundle/vim-powerline"]
 	path = vim/bundle/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
 [submodule "vim/bundle/flake8"]
 	path = vim/bundle/flake8
-	url = git@github.com:nvie/vim-flake8.git
+	url = https://github.com/nvie/vim-flake8.git
+[submodule "vim/bundle/vim-commentary"]
+	path = vim/bundle/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git

@@ -12,17 +12,19 @@ die() {
     exit 1
 }
 
-[ -z "$1" ] && die "usage: $0 /path/to/install\ni.e.: $0 /home/username/"
+preinstall() {
+	[ -e "$INSTALL_TO/vimrc" ] && die "$INSTALL_TO/vimrc already exists."
+	[ -e "~/.vim" ] && die "~/.vim already exists."
+	[ -e "~/.vimrc" ] && die "~/.vimrc already exists."
+	cd "$INSTALL_TO"
+	git clone git://github.com/z7z8th/vimrc.git
+}
 
-[ -e "$INSTALL_TO/vimrc" ] && die "$INSTALL_TO/vimrc already exists."
-[ -e "~/.vim" ] && die "~/.vim already exists."
-[ -e "~/.vimrc" ] && die "~/.vimrc already exists."
+set -x
 
-set -xe
+[ "$1" != "postinstall" ] && preinstall
 
-cd "$INSTALL_TO"
-git clone git://github.com/nvie/vimrc.git
-cd vimrc
+cd $INSTALL_TO/vimrc
 
 # Download vim plugin bundles
 git submodule init
