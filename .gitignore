@@ -4,6 +4,7 @@
 /vim/cache
 /vim/user.vim
 /vim/view
+/vim/tags
 /vim/.netrwhist
 /vim/.tmp/*
 /vim/.undo/*
