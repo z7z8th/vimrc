@@ -658,6 +658,7 @@ set tags+=~/.vim/tags/qt4
 map <C-F12> :!ctags -R --sort=yes --c++-kinds=+plx --c-kinds=+plx --fields=+iaS --extra=+q .<CR>
 
 " OmniCppComplete
+au BufNewFile,BufRead,BufEnter *.cpp,*.hpp,*.cxx,*.C,*.cc set omnifunc=omni#cpp#complete#Main
 let OmniCpp_NamespaceSearch = 1
 let OmniCpp_GlobalScopeSearch = 1
 let OmniCpp_ShowAccess = 1
