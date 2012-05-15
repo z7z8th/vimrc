@@ -292,6 +292,15 @@ nnoremap <leader>v V`]
 
 " Gundo.vim
 nnoremap <F5> :GundoToggle<CR>
+
+" copy and paste
+nnoremap <S-Insert> <MiddleMouse>
+vnoremap <S-Insert> <MiddleMouse>
+inoremap <S-Insert> <MiddleMouse>
+
+" yankring
+nnoremap <silent> <F10> :YRShow<CR>
+
 " }}}
 
 " NERDTree settings {{{
@@ -633,6 +642,32 @@ let g:Powerline_symbols = 'fancy'
 
 " }}}
 
-
+" {{{ eol white space
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
+" }}}
+
+" {{{ tags and code complete
+" configure tags - add additional tags here or comment out not-used ones
+set tags+=~/.vim/tags/c++-4.4
+set tags+=~/.vim/tags/_usr_include-all
+set tags+=~/.vim/tags/gl
+set tags+=~/.vim/tags/sdl
+set tags+=~/.vim/tags/qt4
+" build tags of your own project with Ctrl-F12
+map <C-F12> :!ctags -R --sort=yes --c++-kinds=+plx --c-kinds=+plx --fields=+iaS --extra=+q .<CR>
+
+" OmniCppComplete
+let OmniCpp_NamespaceSearch = 1
+let OmniCpp_GlobalScopeSearch = 1
+let OmniCpp_ShowAccess = 1
+let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
+let OmniCpp_MayCompleteDot = 1 " autocomplete after .
+let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
+let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
+let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+" automatically open and close the popup menu / preview window
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+set completeopt=menuone,menu,longest,preview
+" }}}
+
