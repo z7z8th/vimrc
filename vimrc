@@ -55,7 +55,7 @@ set virtualedit=all             " allow the cursor to go in to "invalid" places
 set hlsearch                    " highlight search terms
 set incsearch                   " show search matches as you type
 set gdefault                    " search/replace "globally" (on a line) by default
-set listchars=tab:▸\ ,trail:·,extends:#,nbsp:·
+set listchars=tab:▸·,trail:·,extends:#,nbsp:·
 
 set nolist                      " don't show invisible characters by default,
                                 " but it is enabled for some file types (see later)
@@ -658,6 +658,7 @@ set tags+=~/.vim/tags/qt4
 map <C-F12> :!ctags -R --sort=yes --c++-kinds=+plx --c-kinds=+plx --fields=+iaS --extra=+q .<CR>
 
 " OmniCppComplete
+au BufNewFile,BufRead,BufEnter *.cpp,*.hpp,*.cxx,*.C,*.cc set omnifunc=omni#cpp#complete#Main
 let OmniCpp_NamespaceSearch = 1
 let OmniCpp_GlobalScopeSearch = 1
 let OmniCpp_ShowAccess = 1
