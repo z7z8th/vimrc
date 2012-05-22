@@ -34,7 +34,7 @@ let mapleader=","
 
 " Editing behaviour {{{
 set showmode                    " always show what mode we're currently editing in
-set nowrap                      " don't wrap lines
+set wrap                      " don't wrap lines
 set tabstop=4                   " a tab is four spaces
 set softtabstop=4               " when hitting <BS>, pretend like a tab is removed, even if spaces
 set expandtab                   " expand tabs by default (overloadable per file type later)
@@ -131,8 +131,9 @@ if v:version >= 730
     set undodir=~/.vim/.undo,~/tmp,/tmp
 endif
 set nobackup                    " do not keep backup files, it's 70's style cluttering
-set noswapfile                  " do not write annoying intermediate swap files,
+"set noswapfile                  " do not write annoying intermediate swap files,
                                 "    who did ever restore from swap files anyway?
+set swapfile
 set directory=~/.vim/.tmp,~/tmp,/tmp
                                 " store swap files in one of these directories
                                 "    (in case swapfile is ever turned on)
@@ -230,10 +231,15 @@ vmap <silent> <leader>d "_d
 nmap Y y$
 
 " Yank/paste to the OS clipboard with ,y and ,p
-nmap <leader>y "+y
-nmap <leader>Y "+yy
-nmap <leader>p "+p
-nmap <leader>P "+P
+"map <leader>y "+y
+"map <leader>Y "+yy
+"map <leader>p "+p
+"map <leader>P "+P
+noremap y "+y
+noremap yy "+yy
+noremap Y "+yy
+noremap p "+p
+noremap P "+P
 
 " YankRing stuff
 let g:yankring_history_dir = '$HOME/.vim/.tmp'
@@ -271,12 +277,9 @@ nmap <leader><tab> :Sscratch<CR><C-W>x<C-J>
 cmap w!! w !sudo tee % >/dev/null
 
 " Jump to matching pairs easily, with Tab
-nnoremap <Tab> %
-vnoremap <Tab> %
-
-" Folding
-nnoremap <Space> za
-vnoremap <Space> za
+" disable it, i can't use <c-i> to jump forward
+"nnoremap <Tab> %
+"vnoremap <Tab> %
 
 " Strip all trailing whitespace from a file, using ,w
 nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
@@ -306,9 +309,9 @@ nnoremap <silent> <F10> :YRShow<CR>
 " NERDTree settings {{{
 " Put focus to the NERD Tree with F3 (tricked by quickly closing it and
 " immediately showing it again, since there is no :NERDTreeFocus command)
-nmap <leader>n :NERDTreeClose<CR>:NERDTreeToggle<CR>
-nmap <leader>m :NERDTreeClose<CR>:NERDTreeFind<CR>
-nmap <leader>N :NERDTreeClose<CR>
+nmap <leader>nt :NERDTreeToggle<CR>
+nmap <leader>nf :NERDTreeFind<CR>
+nmap <leader>nc :NERDTreeClose<CR>
 
 " Store the bookmarks file
 let NERDTreeBookmarksFile=expand("$HOME/.vim/NERDTreeBookmarks")
@@ -321,7 +324,7 @@ let NERDTreeShowFiles=1
 let NERDTreeShowHidden=1
 
 " Quit on opening files from the tree
-let NERDTreeQuitOnOpen=1
+let NERDTreeQuitOnOpen=0
 
 " Highlight the selected entry in the tree
 let NERDTreeHighlightCursorline=1
@@ -332,17 +335,17 @@ let NERDTreeMouseMode=2
 
 " Don't display these kinds of files
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
-            \ '\.o$', '\.so$', '\.egg$', '^\.git$' ]
+            \ '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$' ]
 
 " }}}
 
 " TagList settings {{{
-nmap <leader>l :TlistClose<CR>:TlistToggle<CR>
+nmap <leader>l :TlistToggle<CR>
 nmap <leader>L :TlistClose<CR>
 
 " quit Vim when the TagList window is the last open window
 let Tlist_Exit_OnlyWindow=1         " quit when TagList is the last open window
-let Tlist_GainFocus_On_ToggleOpen=1 " put focus on the TagList window when it opens
+let Tlist_GainFocus_On_ToggleOpen=0 " put focus on the TagList window when it opens
 "let Tlist_Process_File_Always=1     " process files in the background, even when the TagList window isn't open
 "let Tlist_Show_One_File=1           " only show tags from the current buffer, not all open buffers
 let Tlist_WinWidth=40               " set the width
@@ -351,7 +354,7 @@ let Tlist_Inc_Winwidth=1            " increase window by 1 when growing
 " shorten the time it takes to highlight the current tag (default is 4 secs)
 " note that this setting influences Vim's behaviour when saving swap files,
 " but we have already turned off swap files (earlier)
-"set updatetime=1000
+set updatetime=1000
 
 " the default ctags in /usr/bin on the Mac is GNU ctags, so change it to the
 " exuberant ctags version in /usr/local/bin
@@ -375,7 +378,7 @@ let Tlist_Use_Right_Window=1
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " shortcut to jump to next conflict marker
-nmap <silent> <leader>c /^\(<\\|=\\|>\)\{7\}\([^=].\+\)\?$<CR>
+nmap <silent> <leader>cm /^\(<\\|=\\|>\)\{7\}\([^=].\+\)\?$<CR>
 " }}}
 
 " Filetype specific handling {{{
@@ -471,7 +474,7 @@ if has("autocmd")
         autocmd filetype python nnoremap <silent> <C-t> mmviw:s/True\\|False/\={'True':'False','False':'True'}[submatch(0)]/<CR>`m:nohlsearch<CR>
 
         " Run a quick static syntax check every time we save a Python file
-        autocmd BufWritePost *.py call Flake8()
+        "autocmd BufWritePost *.py call Flake8()
     augroup end " }}}
 
     augroup ruby_files "{{{
@@ -676,3 +679,11 @@ set completeopt=menuone,menu,longest,preview
 nmap <leader>dp    :diffput<CR>
 nmap <leader>dg    :diffget<CR>
 nmap <leader>du    :diffupdate<CR>
+" }}}
+
+noremap <C-Right> :bnext<CR>
+noremap <C-Left> :bprevious<CR>
+map <leader>cd :cd %:p:h<cr>
+map <leader>cc :botright cope<cr>
+map <leader>cn :cn<cr>
+map <leader>cp :cp<cr>
