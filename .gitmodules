@@ -1,39 +1,39 @@
-[submodule "vim/bundles/snipmate_for_django"]
-	path = vim/bundles/snipmate_for_django
+[submodule "bundles/snipmate_for_django"]
+	path = bundles/snipmate_for_django
 	url = https://github.com/robhudson/snipmate_for_django.git
-[submodule "vim/bundle/snipmate_for_django"]
-	path = vim/bundle/snipmate_for_django
+[submodule "bundle/snipmate_for_django"]
+	path = bundle/snipmate_for_django
 	url = https://github.com/robhudson/snipmate_for_django.git
-[submodule "vim/bundle/fugitive"]
-	path = vim/bundle/fugitive
+[submodule "bundle/fugitive"]
+	path = bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "vim/bundle/nerdtree"]
-	path = vim/bundle/nerdtree
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "vim/bundle/ack"]
-	path = vim/bundle/ack
+[submodule "bundle/ack"]
+	path = bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
-[submodule "vim/bundle/abolish"]
-	path = vim/bundle/abolish
+[submodule "bundle/abolish"]
+	path = bundle/abolish
 	url = https://github.com/nvie/vim-abolish.git
-[submodule "vim/bundle/toggle_mouse"]
-	path = vim/bundle/toggle_mouse
+[submodule "bundle/toggle_mouse"]
+	path = bundle/toggle_mouse
 	url = https://github.com/nvie/vim-togglemouse.git
-[submodule "vim/bundle/pyunit"]
-	path = vim/bundle/pyunit
+[submodule "bundle/pyunit"]
+	path = bundle/pyunit
 	url = https://github.com/nvie/vim-pyunit.git
-[submodule "vim/bundle/rst_tables"]
-	path = vim/bundle/rst_tables
+[submodule "bundle/rst_tables"]
+	path = bundle/rst_tables
 	url = https://github.com/nvie/vim-rst-tables.git
-[submodule "vim/bundle/gundo"]
-	path = vim/bundle/gundo
+[submodule "bundle/gundo"]
+	path = bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
-[submodule "vim/bundle/vim-powerline"]
-	path = vim/bundle/vim-powerline
+[submodule "bundle/vim-powerline"]
+	path = bundle/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
-[submodule "vim/bundle/flake8"]
-	path = vim/bundle/flake8
+[submodule "bundle/flake8"]
+	path = bundle/flake8
 	url = https://github.com/nvie/vim-flake8.git
-[submodule "vim/bundle/vim-commentary"]
-	path = vim/bundle/vim-commentary
+[submodule "bundle/vim-commentary"]
+	path = bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git

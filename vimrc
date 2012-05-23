@@ -131,7 +131,7 @@ if v:version >= 730
     set undodir=~/.vim/.undo,~/tmp,/tmp
 endif
 set nobackup                    " do not keep backup files, it's 70's style cluttering
-set noswapfile                  " do not write annoying intermediate swap files,
+"set noswapfile                  " do not write annoying intermediate swap files,
                                 "    who did ever restore from swap files anyway?
 set directory=~/.vim/.tmp,~/tmp,/tmp
                                 " store swap files in one of these directories
@@ -167,6 +167,7 @@ endfunction
 " }}}
 
 " Highlighting {{{
+set t_Co=256
 if &t_Co > 2 || has("gui_running")
    syntax on                    " switch syntax highlighting on, when the terminal has colors
 endif
@@ -306,9 +307,9 @@ nnoremap <silent> <F10> :YRShow<CR>
 " NERDTree settings {{{
 " Put focus to the NERD Tree with F3 (tricked by quickly closing it and
 " immediately showing it again, since there is no :NERDTreeFocus command)
-nmap <leader>n :NERDTreeClose<CR>:NERDTreeToggle<CR>
+nmap <leader>n :NERDTreeToggle<CR>
 nmap <leader>m :NERDTreeClose<CR>:NERDTreeFind<CR>
-nmap <leader>N :NERDTreeClose<CR>
+"" nmap <leader>N :NERDTreeClose<CR>
 
 " Store the bookmarks file
 let NERDTreeBookmarksFile=expand("$HOME/.vim/NERDTreeBookmarks")
@@ -321,7 +322,7 @@ let NERDTreeShowFiles=1
 let NERDTreeShowHidden=1
 
 " Quit on opening files from the tree
-let NERDTreeQuitOnOpen=1
+let NERDTreeQuitOnOpen=0
 
 " Highlight the selected entry in the tree
 let NERDTreeHighlightCursorline=1
@@ -351,7 +352,7 @@ let Tlist_Inc_Winwidth=1            " increase window by 1 when growing
 " shorten the time it takes to highlight the current tag (default is 4 secs)
 " note that this setting influences Vim's behaviour when saving swap files,
 " but we have already turned off swap files (earlier)
-"set updatetime=1000
+set updatetime=1000
 
 " the default ctags in /usr/bin on the Mac is GNU ctags, so change it to the
 " exuberant ctags version in /usr/local/bin
@@ -672,3 +673,5 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 " }}}
 
+map <C-Right> :bnext<CR>
+map <C-Left> :bprevious<CR>
