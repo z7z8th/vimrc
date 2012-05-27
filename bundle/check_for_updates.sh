@@ -6,7 +6,7 @@ for submodule in *; do
 	if [ -d "$submodule/.git" ]; then
 		cd "$submodule"
 		echo "--- $submodule:"
-		if [ "$submodule" = "pyunit" ]; then
+		if [ "$submodule" = "pyunit" -o "$submodule" = "vim-powerline" ]; then
 			git co develop
 		else
 			git co master
