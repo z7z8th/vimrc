@@ -346,6 +346,11 @@ let Tlist_GainFocus_On_ToggleOpen=0 " put focus on the TagList window when it op
 "let Tlist_Show_One_File=1           " only show tags from the current buffer, not all open buffers
 let Tlist_WinWidth=40               " set the width
 let Tlist_Inc_Winwidth=1            " increase window by 1 when growing
+let Tlist_Auto_Update=1
+" remove extra information and blank lines from the taglist window
+let Tlist_Compat_Format=1
+let Tlist_Display_Prototype=1
+let Tlist_Display_Tag_Scope=1
 
 " shorten the time it takes to highlight the current tag (default is 4 secs)
 " note that this setting influences Vim's behaviour when saving swap files,
@@ -362,7 +367,7 @@ let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 let Tlist_Display_Prototype=1
 
 " don't show scope info
-let Tlist_Display_Tag_Scope=0
+"let Tlist_Display_Tag_Scope=0
 
 " show TagList window on the right
 let Tlist_Use_Right_Window=1
