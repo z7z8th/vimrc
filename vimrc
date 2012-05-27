@@ -231,15 +231,10 @@ vmap <silent> <leader>d "_d
 nmap Y y$
 
 " Yank/paste to the OS clipboard with ,y and ,p
-"map <leader>y "+y
-"map <leader>Y "+yy
-"map <leader>p "+p
-"map <leader>P "+P
-noremap y "+y
-noremap yy "+yy
-noremap Y "+yy
-noremap p "+p
-noremap P "+P
+map <leader>y "+y
+map <leader>Y "+yy
+map <leader>p "+p
+map <leader>P "+P
 
 " YankRing stuff
 let g:yankring_history_dir = '$HOME/.vim/.tmp'
@@ -687,3 +682,6 @@ map <leader>cd :cd %:p:h<cr>
 map <leader>cc :botright cope<cr>
 map <leader>cn :cn<cr>
 map <leader>cp :cp<cr>
+
+" {{{ encodings
+set fileencodings=ucs-bom,utf-8,big5,gb18030,default,latin1
