@@ -55,12 +55,14 @@ syn keyword pentadactylCommand loadplugins lpl gr[oup] ! run Clistk[eys] Clk
     \ tabc[lose] tabde[tach] tabd[o] bufd[o] tabdu[plicate] tabl[ast] bl[ast]
     \ tabm[ove] tabn[ext] tn[ext] bn[ext] tabo[nly] tabopen t[open] tabnew
     \ tabp[revious] tp[revious] tabN[ext] tN[ext] bp[revious] bN[ext]
-    \ tabr[ewind] tabfir[st] br[ewind] bf[irst] time tlistk[eys] tlk tm[ap]
-    \ tno[remap] toolbarh[ide] tbh[ide] toolbars[how] tbs[how] toolbart[oggle]
-    \ tbt[oggle] trans tunm[ap] una[bbreviate] u[ndo] undoa[ll] unl[et] unm[ap]
-    \ unpin[tab] useragent ua verb[ose] ve[rsion] vie[wsource] vlistk[eys] vlk
-    \ vm[ap] vno[remap] vunm[ap] winc[lose] wc[lose] wind[ow] winon[ly]
-    \ wino[pen] wo[pen] wqa[ll] wq xa[ll] y[ank] zo[om]
+    \ tabr[ewind] tabfir[st] br[ewind] bf[irst] tgroup-c[hange] tgc
+    \ tgroup-d[elete] tgd tgroup-g[et] tgg tgroup-n[ew] tgn tgroup-s[witch] tgs
+    \ tgroup-t[itle] tgt time tlistk[eys] tlk tm[ap] tno[remap] toolbarh[ide]
+    \ tbh[ide] toolbars[how] tbs[how] toolbart[oggle] tbt[oggle] trans tunm[ap]
+    \ una[bbreviate] u[ndo] undoa[ll] unl[et] unm[ap] unpin[tab] useragent ua
+    \ verb[ose] ve[rsion] vie[wsource] vlistk[eys] vlk vm[ap] vno[remap]
+    \ vunm[ap] winc[lose] wc[lose] wind[ow] winon[ly] wino[pen] wo[pen] wqa[ll]
+    \ wq xa[ll] y[ank] zo[om]
     \ contained
 
 syn match pentadactylCommand "!" contained

@@ -168,6 +168,7 @@ endfunction
 " }}}
 
 " Highlighting {{{
+set t_Co=256
 if &t_Co > 2 || has("gui_running")
    syntax on                    " switch syntax highlighting on, when the terminal has colors
 endif

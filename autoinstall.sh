@@ -32,13 +32,13 @@ git submodule update
 
 # Compile command-t for the current platform
 which ruby || die "command 'ruby' not found"
-cd vim/ruby/command-t
+cd ruby/command-t
 (ruby extconf.rb && make clean && make) || warn "Ruby compilation failed. Ruby not installed, maybe?"
 
 # Symlink ~/.vim and ~/.vimrc
 cd ~
-ln -s "$INSTALL_TO/vimrc/vimrc" .vimrc
-ln -s "$INSTALL_TO/vimrc/vim" .vim
+ln -s "$INSTALL_TO/vimrc" .vim
+ln -s "$INSTALL_TO/.vim/vimrc" .vimrc
 touch ~/.vim/user.vim
 
 echo "Installed and configured .vim, have fun."
