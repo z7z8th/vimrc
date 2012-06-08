@@ -646,12 +646,12 @@ let g:Powerline_symbols = 'fancy'
 
 " }}}
 
-" {{{ eol white space
+" eol white space {{{
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 " }}}
 
-" {{{ tags and code complete
+" tags and code complete {{{
 " configure tags - add additional tags here or comment out not-used ones
 set tags+=~/.vim/tags/c++-4.4
 set tags+=~/.vim/tags/_usr_include-all
@@ -679,18 +679,30 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 " }}}
 
-" {{{ vimdiff
+" vimdiff {{{
 nmap <leader>dp    :diffput<CR>
 nmap <leader>dg    :diffget<CR>
 nmap <leader>du    :diffupdate<CR>
 " }}}
 
+" buffer {{{
 noremap <C-Right> :bnext<CR>
 noremap <C-Left> :bprevious<CR>
 map <leader>cd :cd %:p:h<cr>
 map <leader>cc :botright cope<cr>
 map <leader>cn :cn<cr>
 map <leader>cp :cp<cr>
+" }}}
 
-" {{{ encodings
-set fileencodings=ucs-bom,utf-8,big5,gb18030,default,latin1
+" encodings {{{
+set fileencodings=ucs-bom,utf-8,gb18030,default,latin1
+
+" }}}
+
+" cscope {{{
+ "use quickfix window
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+ "use cscopetag instead of tag
+set cscopetag
+" }}}
+
