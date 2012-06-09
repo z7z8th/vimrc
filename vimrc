@@ -254,8 +254,8 @@ nmap <leader>z :%s#\<<C-r>=expand("<cword>")<CR>\>#
 
 " Keep search matches in the middle of the window and pulse the line when moving
 " to them.
-nnoremap n n:call PulseCursorLine()<cr>
-nnoremap N N:call PulseCursorLine()<cr>
+"nnoremap n n:call PulseCursorLine()<cr>
+"nnoremap N N:call PulseCursorLine()<cr>
 
 " Quickly get out of insert mode without your fingers having to leave the
 " home row (either use 'jj' or 'jk')
@@ -646,12 +646,12 @@ let g:Powerline_symbols = 'fancy'
 
 " }}}
 
-" {{{ eol white space
+" eol white space {{{
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 " }}}
 
-" {{{ tags and code complete
+" tags and code complete {{{
 " configure tags - add additional tags here or comment out not-used ones
 "set tags+=~/.vim/tags/c++-4.4
 "set tags+=~/.vim/tags/_usr_include-all
@@ -661,7 +661,7 @@ set tags+=~/.vim/tags/sdl
 map <C-F12> :!ctags -R --sort=yes --c++-kinds=+plx --c-kinds=+plx --fields=+iaS --extra=+q .<CR>
 
 " OmniCppComplete
-au BufNewFile,BufRead,BufEnter *.cpp,*.hpp,*.cxx,*.C,*.cc set omnifunc=omni#cpp#complete#Main
+autocmd BufNewFile,BufRead,BufEnter *.cpp,*.hpp,*.h,*.cxx,*.C,*.cc set omnifunc=omni#cpp#complete#Main
 let OmniCpp_NamespaceSearch = 1
 let OmniCpp_GlobalScopeSearch = 1
 let OmniCpp_ShowAccess = 1
@@ -670,23 +670,38 @@ let OmniCpp_MayCompleteDot = 1 " autocomplete after .
 let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
 let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
 let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+
+autocmd BufNewFile,BufRead,BufEnter *.cpp,*.hpp,*.h,*.cxx,*.C,*.cc,*.c set foldmethod=syntax
+
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 " }}}
 
-" {{{ vimdiff
+" vimdiff {{{
 nmap <leader>dp    :diffput<CR>
 nmap <leader>dg    :diffget<CR>
 nmap <leader>du    :diffupdate<CR>
 " }}}
 
+" buffer {{{
 noremap <C-Right> :bnext<CR>
 noremap <C-Left> :bprevious<CR>
 map <leader>cd :cd %:p:h<cr>
 map <leader>cc :botright cope<cr>
 map <leader>cn :cn<cr>
 map <leader>cp :cp<cr>
+" }}}
 
-" {{{ encodings
-set fileencodings=ucs-bom,utf-8,big5,gb18030,default,latin1
+" encodings {{{
+set fileencodings=ucs-bom,utf-8,gb18030,default,latin1
+
+" }}}
+
+" cscope {{{
+ "use quickfix window
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+ "use cscopetag instead of tag
+set cscopetag
+" }}}
+
