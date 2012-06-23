@@ -293,8 +293,7 @@ nnoremap <leader>v V`]
 nnoremap <F5> :GundoToggle<CR>
 
 " copy and paste
-nnoremap <S-Insert> <MiddleMouse>
-vnoremap <S-Insert> <MiddleMouse>
+noremap <S-Insert> <MiddleMouse>
 inoremap <S-Insert> <MiddleMouse>
 
 " yankring
@@ -699,9 +698,47 @@ set fileencodings=ucs-bom,utf-8,gb18030,default,latin1
 " }}}
 
 " cscope {{{
- "use quickfix window
-set cscopequickfix=s-,c-,d-,i-,t-,e-
- "use cscopetag instead of tag
-set cscopetag
+if has("cscope")
+    "use quickfix window
+    if has('quickfix')
+        set cscopequickfix=s-,c-,d-,i-,t-,e-
+    endif
+    "use cscopetag instead of tag
+    set cscopetag
+
+    "" set csprg=/usr/bin/cscope
+    set csto=0
+    set nocsverb
+    " add any database in current directory
+    if filereadable("cscope.out")
+        cs add cscope.out
+    " else add database pointed to by environment
+    elseif $CSCOPE_DB != ""
+        cs add $CSCOPE_DB
+    endif
+    set csverb
+
+    "shortcut
+    cnoreabbrev <expr> csa
+          \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs add'  : 'csa')
+    cnoreabbrev <expr> csf
+          \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs find' : 'csf')
+    cnoreabbrev <expr> csk
+          \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs kill' : 'csk')
+    cnoreabbrev <expr> csr
+          \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs reset' : 'csr')
+    cnoreabbrev <expr> css
+          \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs show' : 'css')
+    cnoreabbrev <expr> csh
+          \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs help' : 'csh')
+
+    let g:cs_base_dir="/optz/cscope"
+    let g:deb_kernel_dir="linux-source-3.2"
+    cnoremap  csl cs add <C-R>=g:cs_base_dir<CR>/<C-R>=g:deb_kernel_dir<CR><CR>
+endif
+" }}}
+
+" Misc {{{
+nnoremap <F3>  :echo '	'.strftime('%T %d/%m/%Y', localtime())<CR>
 " }}}
 

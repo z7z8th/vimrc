@@ -13,18 +13,18 @@ die() {
 }
 
 preinstall() {
-	[ -e "$INSTALL_TO/vimrc" ] && die "$INSTALL_TO/vimrc already exists."
 	[ -e "~/.vim" ] && die "~/.vim already exists."
 	[ -e "~/.vimrc" ] && die "~/.vimrc already exists."
 	cd "$INSTALL_TO"
-	git clone git://github.com/z7z8th/vimrc.git
+	git clone git://github.com/z7z8th/vimrc.git .vim
 }
 
 set -x
 
-[ "$1" != "postinstall" ] && preinstall
+[ "$1" = "pre" -o -z "$1" ] && { preinstall; exit 0; }
+[ "$1" = "post" -o -z "$1" ] || exit 0
 
-cd $INSTALL_TO/vimrc
+cd $INSTALL_TO/.vim
 
 # Download vim plugin bundles
 git submodule init
@@ -37,7 +37,6 @@ cd ruby/command-t
 
 # Symlink ~/.vim and ~/.vimrc
 cd ~
-ln -s "$INSTALL_TO/vimrc" .vim
 ln -s "$INSTALL_TO/.vim/vimrc" .vimrc
 touch ~/.vim/user.vim
 
