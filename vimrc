@@ -259,7 +259,7 @@ nmap <leader>z :%s#\<<C-r>=expand("<cword>")<CR>\>#
 
 " Quickly get out of insert mode without your fingers having to leave the
 " home row (either use 'jj' or 'jk')
-inoremap jj <Esc>
+inoremap jj <Esc>gj
 
 " Quick alignment of text
 nmap <leader>al :left<CR>
@@ -561,7 +561,12 @@ au filetype vim set formatoptions-=o
 " }}}
 
 " Extra user or machine specific settings {{{
-source ~/.vim/user.vim
+let user_vim=expand("~/.vim/user.vim")
+if filereadable(user_vim)
+    source ~/.vim/user.vim
+else
+    echo user_vim." doesn't exists, skip it.".<CR>
+endif
 " }}}
 
 " Creating underline/overline headings for markup languages
@@ -705,9 +710,9 @@ if has("cscope")
     endif
     "use cscopetag instead of tag
     set cscopetag
-
-    "" set csprg=/usr/bin/cscope
+    "search cscope first then ctags
     set csto=0
+    "verbose connection status
     set nocsverb
     " add any database in current directory
     if filereadable("cscope.out")
@@ -732,9 +737,6 @@ if has("cscope")
     cnoreabbrev <expr> csh
           \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs help' : 'csh')
 
-    let g:cs_base_dir="/optz/cscope"
-    let g:deb_kernel_dir="linux-source-3.2"
-    cnoremap  csl cs add <C-R>=g:cs_base_dir<CR>/<C-R>=g:deb_kernel_dir<CR><CR>
 endif
 " }}}
 
