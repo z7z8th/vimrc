@@ -742,3 +742,14 @@ endif
 nnoremap <F3>  :echo '	'.strftime('%T %d/%m/%Y', localtime())<CR>
 " }}}
 
+" MRU {{{
+map <leader>mr :MRU<CR>
+let MRU_Use_Current_Window = 1
+let MRU_Auto_Close = 0
+let MRU_Add_Menu = 1
+"}}}
+
+"tab operation {{{
+map H :tabprevious<CR>
+map L :tabnext<CR>
+"}}}
