@@ -5,11 +5,11 @@ dir::
 
 	wget -O - https://github.com/z7z8th/vimrc/raw/master/autoinstall.sh | sh
 
-If you have cloned this repo, run the following command to finish 
+If you have cloned this repo(i.e.: in .vim), run the following command to finish 
 installation::
 
-	cd vimrc
-	./autoinstall.sh postinstall
+	cd .vim
+	./autoinstall.sh post
 
 Installing this vimrc manually
 ==============================
@@ -17,12 +17,13 @@ Although a vimrc is a very personal thing, you may use mine if you
 like it.  To do so, please do the following:
 
 1. Clone this repo::
-
-   	git clone git://github.com/z7z8th/vimrc.git
+   	cd ~/
+   	git clone git://github.com/z7z8th/vimrc.git .vim
 
    or download the plain source only::
 
    	wget -qO - http://github.com/z7z8th/vimrc/tarball/master | tar -xzvf -
+   	mv vimrc ~/.vim
 
 2. Fetch submodules::
 
@@ -31,14 +32,13 @@ like it.  To do so, please do the following:
 
 3. Recompile Command-T Ruby C extension for your platform::
 
-   	cd vim/ruby/command-t
+   	cd ruby/command-t
    	ruby extconf.rb
    	make clean; make
 
 4. Create Symlinks::
 
-   	ln -s path/to/vimrc/vimrc ~/.vimrc
-   	ln -s path/to/vimrc/vim ~/.vim
+   	ln -s ~/.vim/vimrc ~/.vimrc
 
 5. Touch::
 
