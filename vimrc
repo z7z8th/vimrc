@@ -474,7 +474,7 @@ if has("autocmd")
         autocmd filetype python nnoremap <silent> <C-t> mmviw:s/True\\|False/\={'True':'False','False':'True'}[submatch(0)]/<CR>`m:nohlsearch<CR>
 
         " Run a quick static syntax check every time we save a Python file
-        "autocmd BufWritePost *.py call Flake8()
+        ""autocmd BufWritePost *.py call Flake8()
     augroup end " }}}
 
     augroup ruby_files "{{{
@@ -675,7 +675,9 @@ let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
 let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
 let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 
-autocmd BufNewFile,BufRead,BufEnter *.cpp,*.hpp,*.h,*.cxx,*.C,*.cc,*.c set foldmethod=syntax
+if ! &diff
+    autocmd BufNewFile,BufRead,BufEnter *.cpp,*.hpp,*.h,*.cxx,*.C,*.cc,*.c set foldmethod=syntax
+endif
 
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
@@ -683,9 +685,9 @@ set completeopt=menuone,menu,longest,preview
 " }}}
 
 " vimdiff {{{
-nmap <leader>dp    :diffput<CR>
-nmap <leader>dg    :diffget<CR>
 nmap <leader>du    :diffupdate<CR>
+command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+     \ | wincmd p | diffthis
 " }}}
 
 " buffer {{{
@@ -716,7 +718,7 @@ if has("cscope")
     set nocsverb
     " add any database in current directory
     if filereadable("cscope.out")
-        cs add cscope.out
+        ""cs add cscope.out
     " else add database pointed to by environment
     elseif $CSCOPE_DB != ""
         cs add $CSCOPE_DB
@@ -757,3 +759,4 @@ map L :tabnext<CR>
 "}}}
 
 let g:kconfig_syntax_heavy=1
+
