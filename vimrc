@@ -261,6 +261,9 @@ nmap <leader>z :%s#\<<C-r>=expand("<cword>")<CR>\>#
 " home row (either use 'jj' or 'jk')
 inoremap jj <Esc>gj
 
+" Quicly save
+inoremap ;w <Esc>:w<CR>i
+
 " Quick alignment of text
 nmap <leader>al :left<CR>
 nmap <leader>ar :right<CR>
