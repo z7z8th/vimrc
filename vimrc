@@ -50,8 +50,8 @@ set smartcase                   " ignore case if search pattern is all lowercase
                                 "    case-sensitive otherwise
 set smarttab                    " insert tabs on the start of a line according to
                                 "    shiftwidth, not tabstop
-set scrolloff=4                 " keep 4 lines off the edges of the screen when scrolling
-set virtualedit=all             " allow the cursor to go in to "invalid" places
+set scrolloff=2                 " keep 4 lines off the edges of the screen when scrolling
+set virtualedit=insert             " allow the cursor to go in to "invalid" places
 set hlsearch                    " highlight search terms
 set incsearch                   " show search matches as you type
 set gdefault                    " search/replace "globally" (on a line) by default
@@ -259,7 +259,10 @@ nmap <leader>z :%s#\<<C-r>=expand("<cword>")<CR>\>#
 
 " Quickly get out of insert mode without your fingers having to leave the
 " home row (either use 'jj' or 'jk')
-inoremap jj <Esc>
+inoremap jj <Esc>gj
+
+" Quicly save
+inoremap ;w <Esc>:w<CR>i
 
 " Quick alignment of text
 nmap <leader>al :left<CR>
@@ -474,7 +477,7 @@ if has("autocmd")
         autocmd filetype python nnoremap <silent> <C-t> mmviw:s/True\\|False/\={'True':'False','False':'True'}[submatch(0)]/<CR>`m:nohlsearch<CR>
 
         " Run a quick static syntax check every time we save a Python file
-        "autocmd BufWritePost *.py call Flake8()
+        ""autocmd BufWritePost *.py call Flake8()
     augroup end " }}}
 
     augroup ruby_files "{{{
@@ -561,7 +564,12 @@ au filetype vim set formatoptions-=o
 " }}}
 
 " Extra user or machine specific settings {{{
-source ~/.vim/user.vim
+let user_vim=expand("~/.vim/user.vim")
+if filereadable(user_vim)
+    source ~/.vim/user.vim
+else
+    echo user_vim." doesn't exists, skip it.".<CR>
+endif
 " }}}
 
 " Creating underline/overline headings for markup languages
@@ -670,7 +678,9 @@ let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
 let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
 let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 
-autocmd BufNewFile,BufRead,BufEnter *.cpp,*.hpp,*.h,*.cxx,*.C,*.cc,*.c set foldmethod=syntax
+if ! &diff
+    autocmd BufNewFile,BufRead,BufEnter *.cpp,*.hpp,*.h,*.cxx,*.C,*.cc,*.c set foldmethod=syntax
+endif
 
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
@@ -678,9 +688,9 @@ set completeopt=menuone,menu,longest,preview
 " }}}
 
 " vimdiff {{{
-nmap <leader>dp    :diffput<CR>
-nmap <leader>dg    :diffget<CR>
 nmap <leader>du    :diffupdate<CR>
+command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+     \ | wincmd p | diffthis
 " }}}
 
 " buffer {{{
@@ -705,13 +715,13 @@ if has("cscope")
     endif
     "use cscopetag instead of tag
     set cscopetag
-
-    "" set csprg=/usr/bin/cscope
+    "search cscope first then ctags
     set csto=0
+    "verbose connection status
     set nocsverb
     " add any database in current directory
     if filereadable("cscope.out")
-        cs add cscope.out
+        ""cs add cscope.out
     " else add database pointed to by environment
     elseif $CSCOPE_DB != ""
         cs add $CSCOPE_DB
@@ -732,9 +742,6 @@ if has("cscope")
     cnoreabbrev <expr> csh
           \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs help' : 'csh')
 
-    let g:cs_base_dir="/optz/cscope"
-    let g:deb_kernel_dir="linux-source-3.2"
-    cnoremap  csl cs add <C-R>=g:cs_base_dir<CR>/<C-R>=g:deb_kernel_dir<CR><CR>
 endif
 " }}}
 
@@ -753,3 +760,6 @@ let MRU_Add_Menu = 1
 map H :tabprevious<CR>
 map L :tabnext<CR>
 "}}}
+
+let g:kconfig_syntax_heavy=1
+
