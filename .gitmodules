@@ -1,6 +1,3 @@
-[submodule "bundles/snipmate_for_django"]
-	path = bundles/snipmate_for_django
-	url = https://github.com/robhudson/snipmate_for_django.git
 [submodule "bundle/snipmate_for_django"]
 	path = bundle/snipmate_for_django
 	url = https://github.com/robhudson/snipmate_for_django.git
