@@ -763,3 +763,9 @@ map L :tabnext<CR>
 
 let g:kconfig_syntax_heavy=1
 
+
+"indent guides {{{
+"let g:indent_guides_auto_colors = 0
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4 
+" }}}
