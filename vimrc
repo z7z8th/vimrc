@@ -654,7 +654,7 @@ let g:Powerline_symbols = 'fancy'
 " }}}
 
 " eol white space {{{
-highlight WhitespaceEOL ctermbg=red guibg=red
+highlight WhitespaceEOL ctermbg=lightred guibg=lightred
 match WhitespaceEOL /\s\+$/
 " }}}
 
@@ -771,5 +771,10 @@ if has("gui_running")
     autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=white ctermbg=4 
 endif
 let g:indent_guides_guide_size=1
-set cc=80
+"set cc=80
 " }}}
+
+" shortcut for set syntax {{{
+map <leader>sl :set syntax=logcat<CR>
+autocmd filetype logcat set syntax=logcat
+"}}}
