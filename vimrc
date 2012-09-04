@@ -653,10 +653,6 @@ let g:Powerline_symbols = 'fancy'
 
 " }}}
 
-" eol white space {{{
-highlight WhitespaceEOL ctermbg=lightred guibg=lightred
-match WhitespaceEOL /\s\+$/
-" }}}
 
 " tags and code complete {{{
 " configure tags - add additional tags here or comment out not-used ones
