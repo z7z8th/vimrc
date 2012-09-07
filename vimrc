@@ -593,7 +593,7 @@ if has("gui_running")
     set linespace=2
     "colorscheme mustang
     "colorscheme molokai
-    colorscheme torte
+    colorscheme default
 
     " Remove toolbar, left scrollbar and right scrollbar
     set guioptions-=T
