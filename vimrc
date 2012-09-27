@@ -239,14 +239,14 @@ map <leader>P "+P
 
 " YankRing stuff
 let g:yankring_history_dir = '$HOME/.vim/.tmp'
-nmap <leader>r :YRShow<CR>
+nmap <leader>R :YRShow<CR>
 
 " Edit the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Clears the search register
-nmap <silent> <leader>/ :nohlsearch<CR>
+nmap <silent> <leader>c/ :nohlsearch<CR>
 
 " Pull word under cursor into LHS of a substitute (for quick search and
 " replace)
@@ -593,7 +593,7 @@ if has("gui_running")
     set linespace=2
     "colorscheme mustang
     "colorscheme molokai
-    colorscheme torte
+    colorscheme default
 
     " Remove toolbar, left scrollbar and right scrollbar
     set guioptions-=T
@@ -606,45 +606,6 @@ else
     colorscheme default
 endif
 
-" Pulse ------------------------------------------------------------------- {{{
-
-function! PulseCursorLine()
-    let current_window = winnr()
-
-    windo set nocursorline
-    execute current_window . 'wincmd w'
-
-    setlocal cursorline
-
-    redir => old_hi
-        silent execute 'hi CursorLine'
-    redir END
-    let old_hi = split(old_hi, '\n')[0]
-    let old_hi = substitute(old_hi, 'xxx', '', '')
-
-    hi CursorLine guibg=#3a3a3a
-    redraw
-    sleep 20m
-
-    hi CursorLine guibg=#4a4a4a
-    redraw
-    sleep 30m
-
-    hi CursorLine guibg=#3a3a3a
-    redraw
-    sleep 30m
-
-    hi CursorLine guibg=#2a2a2a
-    redraw
-    sleep 20m
-
-    execute 'hi ' . old_hi
-
-    windo set cursorline
-    execute current_window . 'wincmd w'
-endfunction
-
-" }}}
 
 " Powerline configuration ------------------------------------------------- {{{
 
@@ -653,10 +614,6 @@ let g:Powerline_symbols = 'fancy'
 
 " }}}
 
-" eol white space {{{
-highlight WhitespaceEOL ctermbg=red guibg=red
-match WhitespaceEOL /\s\+$/
-" }}}
 
 " tags and code complete {{{
 " configure tags - add additional tags here or comment out not-used ones
@@ -766,3 +723,23 @@ let g:kconfig_syntax_heavy=1
 "commentary {{{
 autocmd FileType debsources set commentstring=#\ %s
 "}}}
+
+"indent guides {{{
+"let g:indent_guides_auto_colors = 0
+if has("gui_running")
+    autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=gray   ctermbg=3
+    autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=white ctermbg=4 
+endif
+let g:indent_guides_guide_size=1
+"set cc=80
+" }}}
+
+" shortcut for set syntax {{{
+map <leader>sl :set syntax=logcat<CR>
+autocmd filetype logcat set syntax=logcat
+"}}}
+
+" mark.vim {{{
+nmap <Leader>M <Plug>MarkToggle
+nmap <Leader>N <Plug>MarkAllClear 
+" }}}

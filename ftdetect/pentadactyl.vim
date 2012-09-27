@@ -1,1 +1,1 @@
-au BufNewFile,BufRead *.pentadactylrc,*.pentadactyl/rc,*.penta set filetype=pentadactyl
+au BufNewFile,BufRead *.pentadactylrc,*.pentadactyl/rc,*.penta,*.pentadactyl/bootstrap  set filetype=pentadactyl

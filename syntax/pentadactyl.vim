@@ -30,33 +30,31 @@ syn keyword pentadactylCommand loadplugins lpl gr[oup] ! run Clistk[eys] Clk
     \ chdbits clistk[eys] clk cm[ap] cno[remap] colo[rscheme] com[mand]
     \ comp[letions] contexts cookies ck coralcdn cuna[bbreviate] cunm[ap]
     \ delbm[arks] delc[ommand] delg[roup] delmac[ros] delm[arks] delqm[arks]
-    \ dels[tyle] deluseragent delua dia[log] di[ct] dic dictd did dictg dig
-    \ dictq diq dictw diw dicty diy dictz diz dlc[lear] doautoa[ll] do[autocmd]
+    \ dels[tyle] deluseragent delua dia[log] di[ct] dictd did dictg dig dictq
+    \ diq dictw diw dicty diy dictz diz dlc[lear] doautoa[ll] do[autocmd]
     \ downl[oads] dl ec[ho] echoe[rr] echom[sg] el[se] elsei[f] elif em[enu]
     \ en[dif] fi exe[cute] exit x exta[dd] extde[lete] extrm extd[isable]
     \ exte[nable] exto[ptions] extp[references] extr[ehash] extt[oggle]
     \ extu[pdate] feedkeys fk fini[sh] flashplay flp flashstop fls flashtoggle
-    \ flt flushdns flvcd fo[rward] fw frameo[nly] gohttps googl gg ha[rdcopy]
-    \ h[elp] helpa[ll] hi[ghlight] hist[ory] hs ia[bbreviate] if ilistk[eys] ilk
-    \ im[ap] ino[remap] iuna[bbreviate] iunm[ap] javas[cript] js ju[mps]
-    \ keepa[lt] let listc[ommands] lc listk[eys] lk listo[ptions] lo
-    \ long-jump-back ljb long-jump-end lje long-jump-forward ljf long-jump-menu
-    \ ljm long-jump-start ljs mac[ros] map ma[rk] marks mes[sages] messc[lear]
-    \ mkp[entadactylrc] mks[yntax] mlistk[eys] mlk mm[ap] mno[remap] munm[ap]
-    \ nlistk[eys] nlk nm[ap] nno[remap] noh[lfind] no[remap] norm[al] nunm[ap]
-    \ olistk[eys] olk om[ap] ono[remap] o[pen] openEx ounm[ap] pa[geinfo]
-    \ pagest[yle] pas pin[tab] pref[erences] prefs pw[d] qma[rk] qmarks q[uit]
-    \ quita[ll] qa[ll] rea[dability] rea redr[aw] reg[isters] reh[ash] re[load]
-    \ reloada[ll] res[tart] runt[ime] sa[nitize] sav[eas] w[rite] sbcl[ose]
-    \ scrip[tnames] search se[t] setg[lobal] setl[ocal] sideb[ar] sb[ar]
-    \ sbop[en] sil[ent] siteSearch smartReader smartReload so[urce] spe[ak]
-    \ st[op] stopa[ll] sty[le] styled[isable] styd[isable] stylee[nable]
-    \ stye[nable] stylet[oggle] styt[oggle] switchSearch tab taba[ttach]
-    \ tabc[lose] tabde[tach] tabd[o] bufd[o] tabdu[plicate] tabl[ast] bl[ast]
-    \ tabm[ove] tabn[ext] tn[ext] bn[ext] tabo[nly] tabopen t[open] tabnew
-    \ tabp[revious] tp[revious] tabN[ext] tN[ext] bp[revious] bN[ext]
-    \ tabr[ewind] tabfir[st] br[ewind] bf[irst] tgroup-c[hange] tgc
-    \ tgroup-d[elete] tgd tgroup-g[et] tgg tgroup-n[ew] tgn tgroup-s[witch] tgs
+    \ flt flushdns flvcd fo[rward] fw frameo[nly] gohttps ha[rdcopy] h[elp]
+    \ helpa[ll] hi[ghlight] hist[ory] hs ia[bbreviate] if ilistk[eys] ilk im[ap]
+    \ ino[remap] iuna[bbreviate] iunm[ap] javas[cript] js ju[mps] keepa[lt] let
+    \ listc[ommands] lc listk[eys] lk listo[ptions] lo mac[ros] map ma[rk] marks
+    \ mes[sages] messc[lear] mkp[entadactylrc] mks[yntax] mlistk[eys] mlk mm[ap]
+    \ mno[remap] munm[ap] nlistk[eys] nlk nm[ap] nno[remap] noh[lfind] no[remap]
+    \ norm[al] nunm[ap] olistk[eys] olk om[ap] ono[remap] o[pen] openEx ounm[ap]
+    \ pa[geinfo] pagest[yle] pas pin[tab] pref[erences] prefs pw[d] qma[rk]
+    \ qmarks q[uit] quita[ll] qa[ll] rea[dability] rea redr[aw] reg[isters]
+    \ reh[ash] re[load] reloada[ll] res[tart] runt[ime] sa[nitize] sav[eas]
+    \ w[rite] sbcl[ose] scrip[tnames] search se[t] setg[lobal] setl[ocal]
+    \ sideb[ar] sb[ar] sbop[en] sil[ent] siteSearch smartReader smartReload
+    \ so[urce] spe[ak] st[op] stopa[ll] sty[le] styled[isable] styd[isable]
+    \ stylee[nable] stye[nable] stylet[oggle] styt[oggle] switchSearch tab
+    \ taba[ttach] tabc[lose] tabde[tach] tabd[o] bufd[o] tabdu[plicate]
+    \ tabl[ast] bl[ast] tabm[ove] tabn[ext] tn[ext] bn[ext] tabo[nly] tabopen
+    \ t[open] tabnew tabp[revious] tp[revious] tabN[ext] tN[ext] bp[revious]
+    \ bN[ext] tabr[ewind] tabfir[st] br[ewind] bf[irst] tgroup-d[elete] tgd
+    \ tgroup-g[et] tgg tgroup-mo[ve] tgm tgroup-n[ew] tgn tgroup-s[witch] tgs
     \ tgroup-t[itle] tgt time tlistk[eys] tlk tm[ap] tno[remap] toolbarh[ide]
     \ tbh[ide] toolbars[how] tbs[how] toolbart[oggle] tbt[oggle] trans tunm[ap]
     \ una[bbreviate] u[ndo] undoa[ll] unl[et] unm[ap] unpin[tab] useragent ua
@@ -93,10 +91,9 @@ syn keyword pentadactylOption activate act altwildmode awim autocomplete au
     \ reas runtimepath rtp sanitizeitems si sanitizeshutdown ss sanitizetimespan
     \ sts scroll scr scrollsteps scs scrolltime sct shell sh shellcmdflag shcf
     \ showmode smd showstatuslinks ssli showtabline stal spelllang spl
-    \ strictfocus sf suggestengines tabclose tc tabopen to timeoutlen tmol
-    \ titlestring urlseparator urlsep us useragent ua verbose vbs wildanchor wia
-    \ wildcase wic wildignore wig wildmode wim wildsort wis wordseparators wsp
-    \ yankshort ys
+    \ strictfocus sf suggestengines timeoutlen tmol titlestring urlseparator
+    \ urlsep us useragent ua verbose vbs wildanchor wia wildcase wic wildignore
+    \ wig wildmode wim wildsort wis wordseparators wsp yankshort ys
     \ contained nextgroup=pentadactylSetMod
 
 let s:toggleOptions = ["banghist", "bh", "dict-clipboard", "dicb",
