@@ -13,7 +13,12 @@ for submodule in *; do
 		fi
 		git pull
 		cd ..
+		echo 
 	fi
 done
+
+cd ./command-t/ruby/command-t/
+ruby extconf.rb
+make clean && make
 
 cd "$oldcwd"
