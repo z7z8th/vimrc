@@ -763,3 +763,6 @@ map L :tabnext<CR>
 
 let g:kconfig_syntax_heavy=1
 
+"commentary {{{
+autocmd FileType debsources set commentstring=#\ %s
+"}}}
