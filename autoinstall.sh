@@ -41,7 +41,7 @@ cd bundle/command-t/ruby/command-t &&
         echo "Ruby compilation succeed." || warn "Ruby compilation failed. Ruby not installed, maybe?"
 
 # Symlink ~/.vim and ~/.vimrc
-[ -L "$VIMRC" ] && ln -sf "$VIM_DIR/vimrc" $VIMRC ||
+[ ! -e "$VIMRC" -o -L "$VIMRC" ] && ln -sf "$VIM_DIR/vimrc" $VIMRC ||
     warn "$VIMRC exists and is not a Symlink, leave it unmodified. Please link it to $VIM_DIR/vimrc yourself."
 [ ! -e "$VIM_DIR/user.vim" ] && touch $VIM_DIR/user.vim
 
