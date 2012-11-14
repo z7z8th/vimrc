@@ -28,6 +28,7 @@ preinstall() {
     warn "$VIM_DIR exits and is not a Symlink, leave it unmodified. Please link it to $INSTALL_TO yourself."
 
 cd $INSTALL_TO
+mkdir .tmp
 
 # Download vim plugin bundles
 echo "init and update git submodule"
