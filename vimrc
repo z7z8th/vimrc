@@ -302,6 +302,9 @@ inoremap <S-Insert> <MiddleMouse>
 " yankring
 nnoremap <silent> <F10> :YRShow<CR>
 
+" force save all and then quit
+noremap <Leader>Q :wqa!<CR>
+
 " }}}
 
 " NERDTree settings {{{
@@ -660,7 +663,7 @@ map <leader>cp :cp<cr>
 " }}}
 
 " encodings {{{
-set fileencodings=ucs-bom,utf-8,gb18030,default,latin1
+set fileencodings=ucs-bom,utf-8,gb18030,big5,default,utf-8
 
 " }}}
 
@@ -743,3 +746,5 @@ autocmd filetype logcat set syntax=logcat
 nmap <Leader>M <Plug>MarkToggle
 nmap <Leader>N <Plug>MarkAllClear 
 " }}}
+
+
