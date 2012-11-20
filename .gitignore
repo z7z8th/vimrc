@@ -8,4 +8,5 @@
 /.tmp/*
 /.undo/*
 tags
+/doc/tags-ja
 /bundle/autocomplpop/doc/tags*
